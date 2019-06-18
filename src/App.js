@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 // import ImageCard from "./components/ImageCard";
 import images from "./images.json";
-// import Wrapper from "./components/Wrapper";
+// TODO import Wrapper from "./components/Wrapper";
 
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
+  // Setting this.state. to the json array
   constructor(props){
     super(props)
     this.state = {
@@ -58,13 +58,13 @@ class App extends Component {
   }
 
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  // main state with counter component and image display
   render() {
     return (
  
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Let's play Clicky Game! <hr></hr>Click each emoji only once to score more points.</h1>
+          <h1 className="App-title">Let's play Clicky Game! <hr></hr>Click each emoji only once to score points.</h1>
           <p>{this.state.message}</p>
         </header>
         <div className="conatiner-fluid">
