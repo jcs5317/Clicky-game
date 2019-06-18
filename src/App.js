@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './favicon.ico';
 import './App.css';
 // import ImageCard from "./components/ImageCard";
 import images from "./images.json";
@@ -15,23 +14,20 @@ class App extends Component {
       score: 0,
       highScore: 0,
       unMatched: images,
-      message: "Click any image to start play!"
+      message: "Click any emoji to start play!"
     };
   }
  
 
   clickedImages = (event, id) => {
     console.log(id)
-    //state to be saved in a variable
-    const selection = this.state.unMatched;
-
     //function to filter the matched array, store in variable
     const clicked = this.state.unMatched.find(image => image.id === id);
 
-    // add clikck high score out of the if else
+    // add click high score out of the if else
     if(clicked === undefined) {
       this.setState({
-        message : "Sorry, you chose the that image already. Play Again!",
+        message : "Sorry, you chose that emoji already. Click any emoji to play again!",
         score : 0,
         highScore : (this.state.score > this.state.highScore) ? this.state.score : this.state.highScore,
         images : images,
@@ -42,7 +38,7 @@ class App extends Component {
     }else{
       const updatedArray = this.state.unMatched.filter(match => match.id !== id);
       this.setState({
-        message : "Wayt to go, good pick!",
+        message : "Way to go, keep picking!",
         score : this.state.score + 1,
         images : images,
         highScore : (this.state.score > this.state.highScore) ? this.state.score : this.state.highScore,
@@ -68,17 +64,17 @@ class App extends Component {
  
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Let's play Clicky Game! Click each image only once for more points.</h1>
+          <h1 className="App-title">Let's play Clicky Game! <hr></hr>Click each emoji only once to score more points.</h1>
           <p>{this.state.message}</p>
         </header>
         <div className="conatiner-fluid">
           <div className="row">
-          <div className="col-xs-3">
-              <h3>Click Counter: {this.state.score}</h3>
-          </div>
-            <div className="col-xs-3">
+          <div className="col-sm-3">
               <h3>Top Score: {this.state.highScore} </h3>
             </div>
+          <div className="col-sm-3">
+              <h3>Click Counter: {this.state.score}</h3>
+          </div>
             <div className="col-xs-6">
               <h3>{this.state.message} </h3>
             </div>
